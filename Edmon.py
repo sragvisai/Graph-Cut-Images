@@ -4,6 +4,7 @@ class EdmonKarps:
   
     def __init__(self,matrixAsGraph):
         self.matrixAsGraph = matrixAsGraph
+        #storing the oroginal overlap adj matrix , which later helps us in determining the cut
         self.org_matrixAsGraph = [i[:] for i in matrixAsGraph] 
         self. noOfRows = len(matrixAsGraph) 
         self.noOfCols = len(matrixAsGraph[0])
@@ -70,8 +71,10 @@ class EdmonKarps:
         visited=len(self.matrixAsGraph)*[False]
         
         self.depthFirstSearch(self.matrixAsGraph,s,visited)
-  
+
+        #to store left side of the edge
         left_image = []
+        #to store right side of the edge
         right_image = []
         
         for i in range(self.noOfRows): 
@@ -81,3 +84,6 @@ class EdmonKarps:
                     right_image.append(j)
                     
         return left_image,right_image,visited
+
+
+#Referred from https://www.geeksforgeeks.org/minimum-cut-in-a-directed-graph/

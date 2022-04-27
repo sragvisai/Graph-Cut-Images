@@ -1,16 +1,35 @@
 # Graph-Cut-Images
 
 NAME : SAI SRAGVI VIBHUSHAN NIDAMARTI
+
 CAMPUS ID : gt73213@umbc.edu
+
 GL : gt73213@gl.umbc.edu
+
+**About the project**:
+
+In this project we perform image quilting, by considering a small patch from a given image and use that to get an image of bigger size.
+We achieve the results by implementing min-cut using the Edmond Karps and Ford Fulkerson Algorithms.
+
+The code can be found in 'Project' notebook and relevant outputs can be found under each cell.
+
+We choose the algorithm to work on by passing the name of the algo as a parameter to the replicateImage function as follows:
+
+--For Edmond Algo ------
+finalImage,overlapPlot = replicateImage(img, 25 , (6, 6),'todo',"Edmond",False,False)
+
+--For Ford Algo--------------------- 
+finalImage,overlapPlot = replicateImage(img, 25 , (6, 6),'todo',"Ford",True,True)
+
+The last two variables define whether you need a sequence of outputs and the cut graphs respectivley.
 
 
 **Libraries Used and how to install them :**
 
-import math
+ math
 from skimage import io, util
-import heapq
-import sklearn
+heapq
+sklearn
 
 The following moules are not in-built and will be found as python files in the directory
 _import Edmon

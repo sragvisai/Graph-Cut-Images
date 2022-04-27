@@ -4,15 +4,16 @@ class patchGeneration:
     def __init__(self) -> None:
         pass
 
+#returns a random image patch of the desired size by considering the patchLength
 def getInitialPatch(orgImage, patchLength):
-    height, width, _ = orgImage.shape
-   
+    height, width, _ = orgImage.shape   
     np.random.seed(1111)
     row = np.random.randint(height - patchLength)
     col = np.random.randint(width - patchLength)
 
     return orgImage[row:row+patchLength, col:col+patchLength]
 
+#returns the best fit possible for the current position of the resultant image
 def getBestFit(orgImage, patchLength, overlap, res, posY, posX):
     
     height, width, _ = orgImage.shape
@@ -27,6 +28,7 @@ def getBestFit(orgImage, patchLength, overlap, res, posY, posX):
     i, j = np.unravel_index(np.argmin(errorList), errorList.shape)
     return orgImage[i:i+patchLength, j:j+patchLength]
 
+#determines the amount of difference as errors between the patches
 def getErrorWithSelection(patch, patchLength, overlap, res, posY, posX):
     totalError = 0
 
