@@ -24,9 +24,9 @@ finalImage,overlapPlot = replicateImage(img, 25 , (6, 6),'todo',"Ford",True,True
 The last two variables define whether you need a sequence of outputs and the cut graphs respectivley.
 
 
-**Libraries Used and how to install them :**
+**Imported libs and modules**
 
- math
+math
 from skimage import io, util
 heapq
 sklearn
@@ -37,10 +37,18 @@ import Ford
 from patchGeneration import_
 
 **Note** : If any by any chance , you encounter a attribute not found error for the above three modules, please restart the jupyter kernel and run the import cells again
+
+Installation commands :
+ pip install matplotlib==3.5.0
  
+ pip install numpy==1.21.4
+ 
+ pip install opencv-python==4.5.5.64
+ 
+ pip install Pillow==8.4.0
 
 **How to Run the File**:
-It is a Jupyter Notebook and can be run just by pressing the run button / ctrl+enter on ea
+It is a Jupyter Notebook and can be run just by pressing the run button / ctrl+enter on each cell
 
 
 
