@@ -8,7 +8,7 @@ class EdmonKarps:
         self. noOfRows = len(matrixAsGraph) 
         self.noOfCols = len(matrixAsGraph[0])
 
-    def BFS(self,s, t, parent): 
+    def breadhFirstSearch(self,s, t, parent): 
   
         #no node is visited yet
         visited =[False]*(self.noOfRows) 
@@ -19,7 +19,7 @@ class EdmonKarps:
         que.append(s)
         visited[s] = True
   
-        # Standard BFS Loop 
+        # Standard breadhFirstSearch Loop 
         while que: 
   
             #Deque a vertex from que and print it 
@@ -35,11 +35,11 @@ class EdmonKarps:
         return True if visited[t] else False
           
     
-    def dfs(self, matrixAsGraph,s,visited):
+    def depthFirstSearch(self, matrixAsGraph,s,visited):
         visited[s]=True
         for i in range(len(matrixAsGraph)):
             if matrixAsGraph[s][i]>0 and not visited[i]:
-                self.dfs(matrixAsGraph,i,visited)
+                self.depthFirstSearch(matrixAsGraph,i,visited)
   
     # Returns the min-cut of the given matrixAsGraph 
     def minCut(self, source, sink): 
@@ -47,7 +47,7 @@ class EdmonKarps:
         parent = [-1]*(self.noOfRows) 
   
         maxFlow = 0
-        while self.BFS(source, sink, parent) : 
+        while self.breadhFirstSearch(source, sink, parent) : 
   
             pathValue = float("Inf") 
             s = sink
@@ -69,7 +69,7 @@ class EdmonKarps:
   
         visited=len(self.matrixAsGraph)*[False]
         
-        self.dfs(self.matrixAsGraph,s,visited)
+        self.depthFirstSearch(self.matrixAsGraph,s,visited)
   
         left_image = []
         right_image = []
